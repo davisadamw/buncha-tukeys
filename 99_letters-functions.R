@@ -56,11 +56,26 @@ make_multicomp_letters <- function(data, group_var, continuous_var, level = 0.05
                                group_var = {{ group_var }}, 
                                continuous_var = {{ continuous_var }})
   
-  # then grab the letters, return that
+  # then grab the letters and identify if 
   grab_letters_df(glht_result,
                   group_var = {{ group_var }},
-                  level = level)
+                  level = level) %>% 
+    mutate(significance = sig_check(letters))
 }
 
+
+sig_check <- function(letters) {
+  uniques <- unique(letters)
+  # if all the groups have the same letter, there is no significant difference in the data
+  if (length(uniques) == 1) {
+    return("No pairwise differences are significant") 
+  }
+  # if each group has a single unique letter, then all pairs of differences are significant
+  if (length(letters) == length(uniques) & all(str_length(letters) == 1)) {
+    return("All pairwise differences are significant")
+  } else {
+    return("Some pairwise differences are significant")
+  }
+}
 
 

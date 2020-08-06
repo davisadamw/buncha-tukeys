@@ -1,5 +1,7 @@
-# buncha-tukeys
+# Run a bunch of Tukey Honestly Significant Difference tests
 make a bunch of tukey HSD tests with letters
+
+R packages required are all included in tidyverse and multcomp
 
 * 01_unpack-zip.R unzips for_adam into a temp directory, grabs the parts we care about, and puts them in Data_In
 * 02_run-letters.R runs analysis, writes letters file (temporary)

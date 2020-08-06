@@ -3,7 +3,7 @@ source("99_letters-functions.R")
 source("99_IO-functions.R")
 
 # identify the source files
-all_sources = list.files("Data_In", pattern = "source.csv", recursive = TRUE, full.names = TRUE)
+all_sources <- list.files("Data_In", pattern = "source.csv", recursive = TRUE, full.names = TRUE)
 
 all_source_data <- tibble(fullpath = all_sources,
                           figure   = basename(dirname(fullpath)),

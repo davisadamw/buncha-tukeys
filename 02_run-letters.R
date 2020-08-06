@@ -23,4 +23,5 @@ all_source_letters <- all_source_data %>%
 
 # store significance results in a temporary file
 all_source_letters %>% 
-  write_rds("sig_results.rds")
+  write_rds("sig_results.rds") %>% 
+  write_csv("sig_results.csv")

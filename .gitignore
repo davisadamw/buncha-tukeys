@@ -3,5 +3,6 @@
 .RData
 .Ruserdata
 Data_In/*
+Data_Out/*
 for_adam.zip
-sig_results.rds
+sig_results.*
